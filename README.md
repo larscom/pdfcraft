@@ -153,6 +153,13 @@ This project is built with modern web technologies to provide a slick, app-like 
   - [PyMuPDF (WASM)](https://pymupdf.readthedocs.io/)
 - **State Management**: [Zustand](https://github.com/pmndrs/zustand)
 
+## 🐳 Run prebuild docker image
+
+```shell
+docker run -p 8080:80 ghcr.io/larscom/pdfcraft:latest
+```
+Navigate to: http://localhost:8080
+
 ## 🚀 Getting Started
 
 To run this project locally, follow these steps:
@@ -245,13 +252,21 @@ After the build is complete, all static files will be located in the `out` direc
 
 You can deploy the contents of the `out` directory to any of the following platforms:
 
-#### A. Vercel (Recommended)
+#### B. Docker (Recommended #1)
+
+There is a prebuild docker image available which you can run directly.
+
+```shell
+docker run -p 80:80 ghcr.io/larscom/pdfcraft:latest
+```
+
+#### B. Vercel (Recommended #2)
 1. Install Vercel CLI: `npm i -g vercel`
 2. Run the `vercel` command.
 3. Follow the prompts to set the build command to `npm run build` and the output directory to `out`.
 4. Alternatively, connect directly to your GitHub repository, and Vercel will automatically detect Next.js and configure it.
 
-#### B. Nginx / Apache
+#### C. Nginx / Apache
 Copy the contents of the `out` directory to the root directory of your web server.
 
 **Nginx Configuration Example:**
@@ -273,12 +288,12 @@ server {
 }
 ```
 
-#### C. GitHub Pages
+#### D. GitHub Pages
 1. Push the `out` directory to the `gh-pages` branch of your repository.
 2. Enable GitHub Pages in your repository settings.
 3. Note: If you are not using a custom domain, you might need to modify `basePath` in `next.config.js`.
 
-#### D. Netlify
+#### E. Netlify
 1. Connect your repository to Netlify.
 2. Set build command: `npm run build`
 3. Set publish directory: `out`
