@@ -252,7 +252,7 @@ After the build is complete, all static files will be located in the `out` direc
 
 You can deploy the contents of the `out` directory to any of the following platforms:
 
-#### B. Docker (Recommended #1)
+#### A. Docker (Recommended #1)
 
 There is a prebuild docker image available which you can run directly.
 
